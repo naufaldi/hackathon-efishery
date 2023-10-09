@@ -3,6 +3,7 @@ export const okr = [
     code: 'OKR01',
     description: 'Increase Revenue',
     key: 'Company',
+    point: 79,
     heads: [
       {
         code: 'OKR01.1',
@@ -39,6 +40,7 @@ export const okr = [
     code: 'OKR03',
     description: 'Improve Customer Satisfaction',
     key: 'Company',
+    point: 90,
     heads: [
       {
         code: 'OKR03.1',
@@ -63,6 +65,7 @@ export const okr = [
     code: 'OKR04',
     description: 'Enhance Product Quality',
     key: 'Company',
+    point: 20,
     heads: [
       {
         code: 'OKR04.1',
@@ -85,6 +88,7 @@ export const okr = [
     code: 'OKR05',
     description: 'Reduce Operational Costs',
     key: 'Company',
+    point: 30,
     heads: [
       {
         code: 'OKR05.1',
@@ -109,6 +113,7 @@ export const okr = [
     code: 'OKR06',
     description: 'Accelerate Digital Transformation',
     key: 'Company',
+    point: 40,
     heads: [
       {
         code: 'OKR06.1',
@@ -131,6 +136,7 @@ export const okr = [
     code: 'OKR07',
     description: 'Strengthen Brand Loyalty',
     key: 'Company',
+    point: 50,
     heads: [
       {
         code: 'OKR07.1',

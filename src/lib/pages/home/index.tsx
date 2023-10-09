@@ -1,11 +1,22 @@
 import type { NextPage } from 'next';
+import {
+  PiArrowFatLinesDownFill,
+  PiArrowFatLinesUpFill,
+  PiEqualsFill,
+} from 'react-icons/pi';
 
 import Character from '@/lib/components/common/character';
 import { Card, CardTitle } from '@/lib/components/ui/card';
 import { Progress } from '@/lib/components/ui/progress';
 import { okr } from '@/lib/constant/okr';
+import { determinePriority } from '@/lib/utils/priority';
 
 const Home: NextPage = () => {
+  const priorityIcons = {
+    High: <PiArrowFatLinesUpFill className="h-4 w-4 text-red-500" />,
+    Medium: <PiEqualsFill className="h-4 w-4 text-blue-500" />,
+    Low: <PiArrowFatLinesDownFill className="h-4 w-4 text-green-500" />,
+  };
   return (
     <div className="grid grid-cols-12 gap-4">
       <div className="col-span-12">
@@ -22,11 +33,21 @@ const Home: NextPage = () => {
           />
         </div>
       </Card>
-      {okr.map((item) => (
-        <Card key={item.code} className="col-span-12 bg-slate-800 px-2 py-3">
-          <h6 className="text-base">{item.description}</h6>
-        </Card>
-      ))}
+      {okr
+        .slice()
+        .sort((a, b) => b.point - a.point)
+        .map((item) => {
+          const priority = determinePriority(item.point);
+          return (
+            <Card
+              key={item.code}
+              className="col-span-12 flex items-center justify-between bg-slate-800 px-2 py-3"
+            >
+              <h6 className="text-base">{item.description}</h6>
+              {priorityIcons[priority]}
+            </Card>
+          );
+        })}
     </div>
   );
 };

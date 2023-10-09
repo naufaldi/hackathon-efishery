@@ -19,7 +19,7 @@ const Profile: NextPage = () => {
           />
         </div>
         <div className="flex flex-col">
-          <h1 className="text-lg">Naufaldi Rafif S</h1>
+          <h1 className="text-lg">Ningen</h1>
           <h3 className="text-sm">Mid Frontend</h3>
         </div>
         <Label className="ml-auto rounded-md bg-green-400 px-4 py-2">

@@ -12,8 +12,19 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/lib/components/ui/accordion';
+import { Button } from '@/lib/components/ui/button';
 import { Card } from '@/lib/components/ui/card';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/lib/components/ui/dialog';
+import { Label } from '@/lib/components/ui/label';
 import { kpi } from '@/lib/constant/kpi';
+import { cn } from '@/lib/styles/utils';
 import { determinePriority } from '@/lib/utils/priority';
 // import { okr } from '@/lib/constant/okr';
 
@@ -28,6 +39,9 @@ const Task: NextPage = () => {
     <div className="grid grid-cols-12 gap-4">
       <div className="col-span-12">
         <Character />
+      </div>
+      <div className="col-span-12">
+        <h4 className="text-lg">Increase Revenue</h4>
       </div>
       {kpi
         .slice()
@@ -51,18 +65,57 @@ const Task: NextPage = () => {
                     {item.heads
                       .sort((a, b) => b.point - a.point)
                       .map((items) => {
-                        const priorityItem = determinePriority(items.point);
-
                         return (
-                          <Card
-                            key={items.code}
-                            className="col-span-12 flex items-center justify-between bg-slate-600 px-5 py-3"
-                          >
-                            <div className="w-full max-w-[90%]">
-                              <p className="text-sm">{items.description}</p>
-                            </div>
-                            {priorityIcons[priorityItem]}
-                          </Card>
+                          <Dialog>
+                            <DialogTrigger>
+                              {' '}
+                              <Card
+                                key={items.code}
+                                className="col-span-12 flex items-center justify-between bg-slate-600 px-5 py-3"
+                              >
+                                <div className="w-full max-w-[90%] text-left">
+                                  <p className="text-sm">{items.description}</p>
+                                </div>
+                                <Label
+                                  className={cn(
+                                    'rounded-sm  px-2 py-1 text-[10px] text-black',
+                                    items.status === 'DONE' && 'bg-green-500',
+                                    items.status === 'ONGOING' && 'bg-blue-500',
+                                    items.status === 'TODO' && 'bg-slate-700'
+                                  )}
+                                >
+                                  {items.status}
+                                </Label>
+                              </Card>
+                            </DialogTrigger>
+                            <DialogContent>
+                              <DialogHeader>
+                                <DialogTitle>
+                                  Are you sure change status?
+                                </DialogTitle>
+                                <DialogDescription className="flex flex-row items-center justify-evenly gap-2 pt-4">
+                                  <Button size="sm" className="text-xs">
+                                    {' '}
+                                    TODO{' '}
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    className="bg-blue-500 text-xs"
+                                  >
+                                    {' '}
+                                    ONGOING{' '}
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    className="bg-green-500 text-xs"
+                                  >
+                                    {' '}
+                                    DONE{' '}
+                                  </Button>
+                                </DialogDescription>
+                              </DialogHeader>
+                            </DialogContent>
+                          </Dialog>
                         );
                       })}
                   </div>

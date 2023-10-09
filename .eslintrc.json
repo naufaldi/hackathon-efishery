@@ -5,6 +5,7 @@
     "plugin:@next/next/recommended"
   ],
   "rules": {
-    "sonarjs/no-duplicate-string": "off"
+    "sonarjs/no-duplicate-string": "off",
+    "react/prop-types": "off"
   }
 }
