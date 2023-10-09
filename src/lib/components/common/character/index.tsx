@@ -1,9 +1,10 @@
 import Image from 'next/image';
-import { GoHeartFill, GoStarFill } from 'react-icons/go';
+import { GoHeartFill, GoStarFill, GoArchive } from 'react-icons/go';
 
 const Character = () => {
   const health = 50;
   const experience = 25;
+  const quest = 10;
   return (
     <div className="grid grid-cols-12 gap-4">
       <div className="col-span-3">
@@ -42,6 +43,21 @@ const Character = () => {
             <div className="mt-2 flex w-full justify-between">
               <p className="text-xs">{experience}/100</p>
               <p className="text-xs">Experience</p>
+            </div>
+          </div>
+        </div>
+        <div className="flex w-full items-center gap-4">
+          <GoArchive className="h-5 w-5 fill-blue-600" />
+          <div className="flex  flex-grow flex-col">
+            <div className="h-3 w-full rounded-full bg-gray-200 dark:bg-gray-700">
+              <div
+                className="h-3 rounded-full bg-blue-600"
+                style={{ width: `${quest}%` }}
+              />
+            </div>
+            <div className="mt-2 flex w-full justify-between">
+              <p className="text-xs">{quest}/20</p>
+              <p className="text-xs">Quest</p>
             </div>
           </div>
         </div>
