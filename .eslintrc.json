@@ -3,5 +3,8 @@
     "sznm/react",
     "plugin:react/jsx-runtime",
     "plugin:@next/next/recommended"
-  ]
+  ],
+  "rules": {
+    "sonarjs/no-duplicate-string": "off"
+  }
 }

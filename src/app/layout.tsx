@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
-import Layout from '@/lib/components/layout';
 import { fontSans } from '@/lib/styles/fonts';
 import { cn } from '@/lib/styles/utils';
 
 import '@/lib/styles/globals.css';
+import { ThemeProvider } from '@/lib/components/theme-provider';
 
 const APP_NAME = 'nextarter-tailwind';
 
@@ -53,9 +53,9 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           fontSans.variable
         )}
       >
-        <Layout>
-          <div className="flex flex-1">{children}</div>
-        </Layout>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <div className="flex min-h-screen flex-1">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );
