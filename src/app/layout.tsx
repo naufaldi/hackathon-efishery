@@ -6,11 +6,11 @@ import { cn } from '@/lib/styles/utils';
 import '@/lib/styles/globals.css';
 import { ThemeProvider } from '@/lib/components/theme-provider';
 
-const APP_NAME = 'nextarter-tailwind';
+const APP_NAME = 'OKR Tracking';
 
 export const metadata: Metadata = {
   title: APP_NAME,
-  description: 'Next.js + TailwindCSS v3 + TypeScript template',
+  description: 'OKR Tracking',
   viewport: {
     width: 'device-width',
     initialScale: 1,
@@ -27,15 +27,15 @@ export const metadata: Metadata = {
   themeColor: '#FFFFFF',
   openGraph: {
     url: 'https://nextarter-tailwind.sznm.dev',
-    title: 'nextarter-tailwind',
-    description: 'Next.js + TailwindCSS v3 + TypeScript template',
+    title: 'OKR Tracking',
+    description: 'OKR ',
     images: {
       url: 'https://og-image.sznm.dev/**nextarter-tailwind**.sznm.dev.png?theme=dark&md=1&fontSize=125px&images=https%3A%2F%2Fsznm.dev%2Favataaars.svg&widths=250',
-      alt: 'nextarter-tailwind.sznm.dev og-image',
+      alt: 'OKR Tracking og-image',
     },
   },
   twitter: {
-    creator: '@sozonome',
+    creator: '@f2aldi',
     card: 'summary_large_image',
   },
 };
